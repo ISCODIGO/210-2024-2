@@ -15,5 +15,14 @@ public class Switch {
                 System.out.println("Dia no valido");
             }
         }
+
+        String dia = switch (opcion) {
+            case 1 -> "Domingo";
+            case 2 -> "Lunes";
+            case 7 -> "Sabado";
+            default -> "Dia no valido";
+        };
+
+        System.out.println(dia);
     }
 }
