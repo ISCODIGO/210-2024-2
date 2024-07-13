@@ -1,3 +1,5 @@
+package registro;
+
 import java.time.LocalTime;
 import java.time.LocalDateTime;
 import java.util.Arrays;

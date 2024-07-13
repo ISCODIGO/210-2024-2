@@ -1,3 +1,5 @@
+package registro;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -11,8 +13,7 @@ public class Estudiante {
     String cuenta;
     String nombre;
     String clave;
-    String asignatura;
-    LocalTime horaEntrada;
+    Seccion[] seccion;
     LocalDateTime[] llegadas;
 
     // Funciones
@@ -25,21 +26,9 @@ public class Estudiante {
     }
 
     // 2. Setter / mutador: Asignar un estado a un atributo
-    public void setAsignatura(String asignatura) {
-        this.asignatura = asignatura;
-    }
 
-    public void setHoraEntrada(LocalTime hora) {
-        if (hora.getHour() < 6 || hora.getHour() > 21) {
-            throw new IllegalArgumentException("Hora invalida");
-        }
-        horaEntrada = hora;
-    }
 
     // 3. Getter / Accesores: Permiten leer el estado de un atributo
-    public LocalTime getHoraEntrada() {
-        return horaEntrada;
-    }
 
     // 4. Auxiliar
     public void agregarEntrada(LocalDateTime instante) {
@@ -72,6 +61,6 @@ public class Estudiante {
     }
 
     public String toString() {
-        return nombre + "(" + cuenta + ")\n" + asignatura + "(" + horaEntrada + ")";
+        return nombre + "(" + cuenta + ")";
     }
 }
