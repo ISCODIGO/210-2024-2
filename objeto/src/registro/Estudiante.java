@@ -2,6 +2,7 @@ package registro;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import static java.time.temporal.ChronoUnit.MINUTES;
 
@@ -10,37 +11,33 @@ public class Estudiante {
     static int conteoEstudiantes = 0;
 
     // Atributos
-    String cuenta;
-    String nombre;
-    String clave;
-    Seccion[] seccion;
-    LocalDateTime[] llegadas;
+    private String cuenta;
+    private String nombre;
+    private String clave;
+    private ArrayList<Seccion> secciones;
+    private ArrayList<LocalDateTime> llegadas;
 
     // Funciones
     // 1. Constructor: Permite inicializar el objeto
     public Estudiante(String cuenta, String nombre) {
         this.cuenta = cuenta;
         this.nombre = nombre;
-        this.llegadas = new LocalDateTime[5];
+        this.llegadas = new ArrayList<>();
+        this.secciones = new ArrayList<>();
         conteoEstudiantes++;
     }
 
-    // 2. Setter / mutador: Asignar un estado a un atributo
-
-
-    // 3. Getter / Accesores: Permiten leer el estado de un atributo
 
     // 4. Auxiliar
     public void agregarEntrada(LocalDateTime instante) {
-        for (int i = 0; i < llegadas.length; i++) {
-            if (llegadas[i] == null) {
-                llegadas[i] = instante;
-                return;
-            }
-        }
+        this.llegadas.add(instante);
     }
 
-    public int[] getMinutosRetraso() {
+    public void agregarSeccion(Seccion seccion) {
+        this.secciones.add(seccion);
+    }
+
+    /*public int[] getMinutosRetraso() {
         int[] salida = new int[this.llegadas.length];
         for (int i = 0; i < this.llegadas.length; i++) {
             if (this.llegadas[i] == null) {
@@ -58,9 +55,23 @@ public class Estudiante {
             }
         }
         return salida;
-    }
+    }*/
 
     public String toString() {
         return nombre + "(" + cuenta + ")";
     }
 }
+
+/*
+
+Clases envoltorias o wrappers son:
+boolean -> Boolean
+byte -> Byte
+short -> Short
+char -> Character
+int -> Integer
+long -> Long
+float -> Float
+double -> Double
+
+ */
