@@ -14,51 +14,51 @@ public class Estudiante {
     private String cuenta;
     private String nombre;
     private String clave;
-    private ArrayList<Seccion> secciones;
-    private ArrayList<LocalDateTime> llegadas;
+    private ArrayList<Marca> marcas;
 
     // Funciones
     // 1. Constructor: Permite inicializar el objeto
     public Estudiante(String cuenta, String nombre) {
         this.cuenta = cuenta;
         this.nombre = nombre;
-        this.llegadas = new ArrayList<>();
-        this.secciones = new ArrayList<>();
+        this.marcas = new ArrayList<>();
         conteoEstudiantes++;
     }
 
+    // 2. Accesores / Getter: leer atributos
+    public String getCuenta() {
+        return cuenta;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public ArrayList<Marca> getMarcas() {
+        return marcas;
+    }
+
+    // 3. Setter / mutadores: modificar un atributo
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
 
     // 4. Auxiliar
-    public void agregarEntrada(LocalDateTime instante) {
-        this.llegadas.add(instante);
+    public String toString() {
+        return nombre + "(" + cuenta + ")\n" +
+                this.marcas;
     }
 
     public void agregarSeccion(Seccion seccion) {
-        this.secciones.add(seccion);
+        this.marcas.add(new Marca(seccion));
     }
 
-    /*public int[] getMinutosRetraso() {
-        int[] salida = new int[this.llegadas.length];
-        for (int i = 0; i < this.llegadas.length; i++) {
-            if (this.llegadas[i] == null) {
-                salida[i] = -1;
-            } else {
-            // 1. Obtener de las llegadas la hora (LocalTime) LocalDateTime -> LocalTime
-                LocalTime start = this.horaEntrada;
-                LocalTime end = this.llegadas[i].toLocalTime();
-
-            // 2. Una vez obtenido calcular la diferencia en minutos de hora de inicio - hora de llegada
-                salida[i] = (int) MINUTES.between(start, end);
-                if (salida[i] < 0) {
-                    salida[i] = 0;
-                }
+    public void agregarMarca(Seccion seccion, LocalDateTime instante) {
+        for (Marca marca : this.marcas) {
+            if (marca.getSeccion().equals(seccion)) {
+                marca.agregarMarca(instante);
             }
         }
-        return salida;
-    }*/
-
-    public String toString() {
-        return nombre + "(" + cuenta + ")";
     }
 }
 
