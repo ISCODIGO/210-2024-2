@@ -2,7 +2,6 @@ package registro;
 
 import java.time.LocalTime;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +14,7 @@ public class Main {
         );
         Estudiante estudiante = new Estudiante("1234", "Juan Lopez");  // Constructur por defecto
         estudiante.agregarSeccion(prog2);
-        estudiante.agregarMarca(prog2, LocalDateTime.now());
+        estudiante.agregarLlegada(prog2, LocalDateTime.now());
         System.out.println(estudiante);
     }
 }

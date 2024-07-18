@@ -1,10 +1,7 @@
 package registro;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
-
-import static java.time.temporal.ChronoUnit.MINUTES;
 
 public class Estudiante {
     // pertenece a la clase y es compartido por todos los objetos
@@ -53,7 +50,7 @@ public class Estudiante {
         this.marcas.add(new Marca(seccion));
     }
 
-    public void agregarMarca(Seccion seccion, LocalDateTime instante) {
+    public void agregarLlegada(Seccion seccion, LocalDateTime instante) {
         for (Marca marca : this.marcas) {
             if (marca.getSeccion().equals(seccion)) {
                 marca.agregarMarca(instante);
