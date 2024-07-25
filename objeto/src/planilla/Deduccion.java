@@ -9,7 +9,7 @@ public class Deduccion {
         this.valor = valor;
     }
 
-    public double generarDeduccion() {
-        return 0;
+    public double getValor() {
+        return valor;
     }
 }

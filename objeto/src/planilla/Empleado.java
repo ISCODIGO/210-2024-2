@@ -1,5 +1,7 @@
 package planilla;
 
+import java.util.ArrayList;
+
 public class Empleado {
     private int id;
     private String nombre;
@@ -8,6 +10,7 @@ public class Empleado {
     private String departamento;
     private String cuentaBancaria;
     private double salario;
+    private ArrayList<Deduccion> deducciones;
 
     private static int secuencia = 0;
 
@@ -17,7 +20,12 @@ public class Empleado {
         this.puesto = puesto;
         this.departamento = departamento;
         this.salario = salario;
+        this.deducciones = new ArrayList<>();
         this.id = ++secuencia;
+    }
+
+    public Empleado(String nombre, String cedula, String puesto, String departamento) {
+        this(nombre, cedula, puesto, departamento, 0);
     }
 
     public int getId() {
@@ -74,7 +82,15 @@ public class Empleado {
                 '}';
     }
 
-    public valorAPagar() {
+    public void agregarDeduccion(Deduccion d) {
+        this.deducciones.add(d);
+    }
 
+    public double valorAPagar() {
+        double totalDeducciones = 0;
+        for (var deduccion : this.deducciones) {
+            totalDeducciones += deduccion.getValor();
+        }
+        return this.getSalario() - totalDeducciones;
     }
 }
