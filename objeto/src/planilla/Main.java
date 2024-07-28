@@ -40,7 +40,7 @@ public class Main {
         Empleado x = emp2;
         System.out.println("Emp x");
         System.out.println(x.valorAPagar());
-        
+
         for (Empleado item : nomina) {
             System.out.println(item.getNombre() + ": " + item.valorAPagar());
         }
