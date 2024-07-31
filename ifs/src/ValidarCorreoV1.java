@@ -16,14 +16,14 @@ public class ValidarCorreoV1 {
             if (correo.contains("@")) {
                 String[] partes = correo.split("@");
                 if (partes.length == 2) {
-                    String parteLocal = partes[0];
+                    String parteUsuario = partes[0];
                     String parteDominio = partes[1];
-                    if (!parteLocal.isEmpty() && !parteDominio.isEmpty()) {
+                    if (!parteUsuario.isEmpty() && !parteDominio.isEmpty()) {
                         if (parteDominio.contains(".")) {
                             String[] partesDominio = parteDominio.split("\\.");
                             if (partesDominio.length >= 2) {
                                 String dominioSuperior = partesDominio[partesDominio.length - 1];
-                                if (!dominioSuperior.isEmpty() && dominioSuperior.length() > 1) {
+                                if (dominioSuperior.length() > 1) {
                                     return true;
                                 }
                             }
