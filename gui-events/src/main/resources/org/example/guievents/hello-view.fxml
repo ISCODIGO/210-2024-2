@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.guievents.HelloController">
+    <Canvas fx:id="canvas" width="800" height="500" />
+    <VBox layoutX="810" layoutY="10" spacing="10">
+        <TextArea text="Commands:
+            Alt+4: Draw square
+            Alt+0: Draw circle
+            Alt+1: Draw line
+            Ctrl+R: Red line
+            Ctrl+B: Blue line
+            Ctrl+Y: Yellow line
+            Shift+Z+1: Line width 1
+            Shift+Z+5: Line width 5
+            Shift+Z+10: Line width 10
+            Ctrl+L: Clear canvas" editable="false" wrapText="true" prefHeight="200"/>
+        <Label text="Origin X:"/>
+        <TextField fx:id="originX"/>
+        <Label text="Origin Y:"/>
+        <TextField fx:id="originY"/>
+        <Label text="End X (for line):"/>
+        <TextField fx:id="endX"/>
+        <Label text="End Y (for line):"/>
+        <TextField fx:id="endY"/>
+        <Button text="Draw Shape" onAction="#handleDrawShape"/>
+        <Button text="Clear Canvas" onAction="#handleClearCanvas"/>
+    </VBox>
+</AnchorPane>
