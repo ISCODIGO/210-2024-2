@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
@@ -20,10 +21,23 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gc = canvas.getGraphicsContext2D();
+
+        // Otra forma de definir un evento
+        canvas.setOnMouseExited(
+                event -> gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight())
+        );
+
+        canvas.setOnMousePressed(
+               event -> System.out.println("Pressed")
+        );
     }
 
     @FXML
-    public void dibujar() {
+    public void dibujar(MouseEvent mouseEvent) {
+        System.out.println(mouseEvent.getX() + ", " + mouseEvent.getY());
+        System.out.println("Boton: " + mouseEvent.getButton());
+        System.out.println("Clics: " + mouseEvent.getClickCount());
+
         // generar una linea azul
         gc.setStroke(Color.BLUE);
         gc.setLineWidth(5);
